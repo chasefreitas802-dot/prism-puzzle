@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0614" />
+    <title>Prism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"></div>
+
+    <div class="app">
+      <header class="top">
+        <div class="brand">
+          <span class="mark" aria-hidden="true"></span>
+          <div>
+            <p class="kicker">light-bending puzzle</p>
+            <h1>Prism</h1>
+          </div>
+        </div>
+        <div class="status">
+          <p class="room" id="roomLabel">01 · First Light</p>
+          <p class="hint" id="hint">Tap a mirror to rotate it.</p>
+        </div>
+        <div class="meters">
+          <span><em id="moveCount">0</em> moves</span>
+          <span><em id="parCount">1</em> par</span>
+        </div>
+      </header>
+
+      <main class="stage">
+        <canvas id="board" width="720" height="720" role="img" aria-label="Prism puzzle board"></canvas>
+        <p class="sr-only" id="live" aria-live="polite"></p>
+      </main>
+
+      <footer class="dock">
+        <button type="button" id="btnUndo" class="btn">Undo <kbd>Z</kbd></button>
+        <button type="button" id="btnReset" class="btn">Reset <kbd>R</kbd></button>
+        <button type="button" id="btnLevels" class="btn primary">Levels <kbd>Esc</kbd></button>
+      </footer>
+    </div>
+
+    <div class="overlay hidden" id="levelOverlay" role="dialog" aria-labelledby="levelTitle">
+      <div class="panel">
+        <p class="kicker">choose a room</p>
+        <h2 id="levelTitle">The Gallery</h2>
+        <div class="level-grid" id="levelGrid"></div>
+        <button type="button" class="btn" id="btnCloseLevels">Back to board</button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="winOverlay" role="dialog" aria-labelledby="winTitle">
+      <div class="panel win">
+        <p class="kicker">crystal lit</p>
+        <h2 id="winTitle">Resonance</h2>
+        <p class="win-sub" id="winSub">The beam found its home.</p>
+        <div class="stars" id="stars" aria-hidden="true"></div>
+        <div class="win-actions">
+          <button type="button" class="btn" id="btnReplay">Replay</button>
+          <button type="button" class="btn" id="btnGallery">Gallery</button>
+          <button type="button" class="btn primary" id="btnNext">Next <kbd>N</kbd></button>
+        </div>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
